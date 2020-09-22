@@ -10,18 +10,44 @@ class Room1 extends CI_Controller {
 	{
 		$this->load->model('monlab_model');
 
-		$data['sensor1'] = $this->monlab_model->ambildata1r1_currently();
-		$data['sensor2'] = $this->monlab_model->ambildata2r1_currently();
-		$data['sensor3'] = $this->monlab_model->ambildata3r1_currently();
-		$data['sensor4'] = $this->monlab_model->ambildata4r1_currently();
-		$data['sensor5'] = $this->monlab_model->ambildata5r1_currently();
-		$data['sensor6'] = $this->monlab_model->ambildata6r1_currently();
-		$data['powerc0'] = $this->monlab_model->ambil_powerh();
-		$data['powerc1'] = $this->monlab_model->ambil_powerd();
-		$data['powerc2'] = $this->monlab_model->ambil_powerhall();
-		$data['powerc3'] = $this->monlab_model->jumlah_powerdall();
-		$data['powerc4'] = $this->monlab_model->ambil_powerm();
-		$data['powerc5'] = $this->monlab_model->ambil_powerdall();
+		$data['sensor1'] = $this->monlab_model->ambildata1r1_currently();//sensor1
+		$data['sensor2'] = $this->monlab_model->ambildata2r1_currently();//sensor2
+		$data['sensor3'] = $this->monlab_model->ambildata3r1_currently();//sensor3
+		$data['sensor4'] = $this->monlab_model->ambildata4r1_currently();//sensor4
+		$data['sensor5'] = $this->monlab_model->ambildata5r1_currently();//sensor5
+		$data['sensor6'] = $this->monlab_model->ambildata6r1_currently();//senosr6
+		
+		$currentlyh = $this->monlab_model->ambil_powerh();//jumlah perjam
+		$crh = 0;
+		foreach ($currentlyh as $data1){
+			$crh += $data1->power;
+		}
+		$data['powerc0'] = $crh;
+
+		$dailyh = $this->monlab_model->ambil_powerd();//jumlah perhari
+		$crd = 0;
+		foreach ($dailyh as $data1){
+			$crd += $data1->power;
+		}
+		$data['powerc1'] = $crd;
+		
+		$data['powerc2'] = $this->monlab_model->ambil_powerhall();//chart
+
+		$sumdailyh = $this->monlab_model->jumlah_powerdall();//jumlah perhari dari bln lalu
+		$crs = 0;
+		foreach ($sumdailyh as $data1){
+			$crs += $data1->powerm;
+		}
+		$data['powerc3'] = $crs;
+
+		$monthlyh = $this->monlab_model->ambil_powerm();//jumlah perbulan
+		$crm = 0;
+		foreach ($monthlyh as $data1){
+			$crm += $data1->power;
+		}
+		$data['powerc4'] = $crm;
+
+		$data['powerc5'] = $this->monlab_model->ambil_powerdall();//chart
 		
 		$this->load->view('admin/mnc/room1', $data);
         // load view admin/overview.php
@@ -160,11 +186,12 @@ class Room1 extends CI_Controller {
 	}
 
 	public function jumlahperjam(){
-		date_default_timezone_set("Asia/Makassar");
+		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('monlab_model');
 		if (isset($_GET['data'])) {
 			//echo "OK";
-			$clock = $this->input->get('data');
+			$clock = date('H');
+			$day = date("d");
 
 			$datapower1 = $this->monlab_model->jumlah_ps1h($clock);
 			$datapower2 = $this->monlab_model->jumlah_ps2h($clock);
@@ -184,8 +211,8 @@ class Room1 extends CI_Controller {
 							foreach ($datapower5 as $data5){
 								$lo5 = $data5->jumlah5 + $lo4;
 								foreach ($datapower6 as $data6){
-									$lo6 = $data6->jumlah6 + $lo5;
-									$insert = array('power' => $lo6, 'time' => time(), 't' => date("H"), 'd' => date("d"));
+									$lo6 = $data6->jumlah6 + $lo5 + 0;
+									$insert = array('power' => $lo6, 'time' => time(), 't' => $clock, 'd' => $day);
 									if ($this->monlab_model->power_s1h($insert)){
 										echo "BERHASIL";
 									}else{
@@ -203,17 +230,18 @@ class Room1 extends CI_Controller {
 	}
 
 	public function jumlahperhari(){
-		date_default_timezone_set("Asia/Makassar");
+		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('monlab_model');
 		if (isset($_GET['data'])) {
 			//echo "OK";
-			$day = $this->input->get('data');
+			$day = date("d");
+			$month = date("m");
 
 			$datapower1 = $this->monlab_model->jumlah_ps1d($day);
 
 			foreach ($datapower1 as $data1){
-				$lo1 = $data1->jumlah;
-				$insert = array('power' => $lo1, 'time' => time(), 'd' => date("d"), 'm' => date("m"));
+				$lo1 = $data1->jumlah+0;
+				$insert = array('power' => $lo1, 'time' => time(), 'd' => $day, 'm' => $month);
 				if ($this->monlab_model->power_s1d($insert)){
 				echo "BERHASIL";
 				}else{
@@ -227,17 +255,18 @@ class Room1 extends CI_Controller {
 	}
 
 	public function jumlahperbulan(){
-		date_default_timezone_set("Asia/Makassar");
+		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('monlab_model');
 		if (isset($_GET['data'])) {
 			//echo "OK";
-			$month = $this->input->get('data');
+			$month = date("m");
+			$year = date("Y");
 
 			$datapower1 = $this->monlab_model->jumlah_ps1m($month);
 
 			foreach ($datapower1 as $data1){
-				$lo1 = $data1->jumlah;
-				$insert = array('power' => $lo1, 'time' => time(), 'm' => date("m"), 'y' => date("Y"));
+				$lo1 = $data1->jumlah+0;
+				$insert = array('power' => $lo1, 'time' => time(), 'm' => $month, 'y' => $year);
 				if ($this->monlab_model->power_s1m($insert)){
 				echo "BERHASIL";
 				}else{
@@ -249,5 +278,4 @@ class Room1 extends CI_Controller {
 		}
 
 	}
-
 }

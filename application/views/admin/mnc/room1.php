@@ -49,7 +49,8 @@
              <?php
                foreach($powerc2 as $data){
                 $power1[] = $data->power;
-                $time1[] = date("H:i | d-m-Y", substr("$data->time", 0, 10));
+                // $time1[] = date("H:i | d-m-Y", substr("$data->time", 0, 10));
+                $time1[] = date("H:i", substr("$data->time", 0, 10));
                }
             	?>
               <div class="card shadow mb-4">
@@ -204,38 +205,30 @@
                 <!-- Card Body -->
                 <div class="card-body">
                 <table cellpadding="10">
-                <?php foreach($powerc0 as $value): ?>
                   <tr>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power Usage Currently</div></td>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                    <td><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php $data=$value->power/1000; echo $data; ?></div></td>
+                    <td align="right"><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php echo $powerc0 ?></div></td>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800"> KW/H</div></td>
                   </tr>
-                  <?php endforeach ?>
-                  <?php foreach($powerc1 as $value): ?>
                   <tr>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power Usage Yesterday</div></td>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                    <td><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php $data=$value->power/1000; echo $data; ?></div></td>
+                    <td align="right"><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php echo $powerc1 ?></div></td>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800"> KW/H</div></td>
                    </tr>
-                   <?php endforeach ?>
-                   <?php foreach($powerc3 as $value): ?>
                   <tr>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power Usage Today From Last Month</div></td>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                    <td><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php $data=$value->powerm/1000; echo $data; ?></div></td>
+                    <td align="right"><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php echo $powerc3 ?></div></td>
                     <td><div class="h5 mb-0 font-weight-bold text-gray-800"> KW/H</div></td>
                    </tr>
-                   <?php endforeach ?>
-                   <?php foreach($powerc4 as $value): ?>
                    <tr>
                      <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power Usage Last Month</div></td>
                      <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                     <td><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php $data=$value->power/1000; echo $data; ?></div></td>
+                     <td align="right"><div class="h5 mb-0 font-weight-bold text-gray-800"> <?php echo $powerc4 ?></div></td>                     
                      <td><div class="h5 mb-0 font-weight-bold text-gray-800"> KW/H</div></td>
                    </tr>
-                   <?php endforeach ?>
                  </table>
                   <hr>
                   Information power usage form Room 1.
@@ -259,7 +252,6 @@
                 <div class="card bg-warning text-white shadow">
                   <div class="card-body">
                       Lamp 1
-                      <?php foreach ($sensor1 as $lamp1): ?>
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
@@ -269,15 +261,16 @@
                         <tr>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power (W)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp1->power ?></div></td>
+                          <?php $lampp1=0; foreach ($sensor1 as $lamp1){$lampp1+=$lamp1->power;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lampp1 ?></div></td>
                         </tr>
                         <tr>
                         <td><div class="h5 mb-0 font-weight-bold text-gray-800">Current (A)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp1->current ?></div></td>
+                          <?php $lampc1=0; foreach ($sensor1 as $lamp1){$lampc1+=$lamp1->current;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo round($lampc1,2); ?></div></td>
                         </tr>
                       </table>
-                      <?php endforeach ?>
                     </div>
                   </div>
                 </div>
@@ -285,7 +278,6 @@
                 <div class="card bg-warning text-white shadow">
                   <div class="card-body">
                       Lamp 2
-                      <?php foreach ($sensor2 as $lamp2): ?>
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
@@ -295,15 +287,16 @@
                         <tr>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power (W)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp2->power ?></div></td>
+                          <?php $lampp2=0; foreach ($sensor2 as $lamp2){$lampp2+=$lamp2->power;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lampp2 ?></div></td>
                         </tr>
                         <tr>
                         <td><div class="h5 mb-0 font-weight-bold text-gray-800">Current (A)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp2->current ?></div></td>
+                          <?php $lampc2=0; foreach ($sensor2 as $lamp2){$lampc2+=$lamp2->current;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo round($lampc2,2); ?></div></td>
                         </tr>
                       </table>
-                      <?php endforeach ?>
                     </div>
                   </div>
                 </div>
@@ -311,7 +304,6 @@
                 <div class="card bg-warning text-white shadow">
                   <div class="card-body">
                       Lamp 3
-                      <?php foreach ($sensor3 as $lamp3): ?>
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
@@ -321,15 +313,16 @@
                         <tr>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power (W)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp3->power ?></div></td>
+                          <?php $lampp3=0; foreach ($sensor3 as $lamp3){$lampp3+=$lamp3->power;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lampp3 ?></div></td>
                         </tr>
                         <tr>
                         <td><div class="h5 mb-0 font-weight-bold text-gray-800">Current (A)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp3->current ?></div></td>
+                          <?php $lampc3=0; foreach ($sensor3 as $lamp3){$lampc3+=$lamp3->current;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo round($lampc3,2); ?></div></td>
                         </tr>
                       </table>
-                      <?php endforeach ?>
                     </div>
                   </div>
                 </div>
@@ -348,7 +341,6 @@
                 <div class="card bg-info text-white shadow">
                   <div class="card-body">
                       Socket 1
-                      <?php foreach ($sensor4 as $lamp4): ?>
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
@@ -358,15 +350,16 @@
                         <tr>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power (W)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp4->power ?></div></td>
+                          <?php $lampp4=0; foreach ($sensor4 as $lamp4){$lampp4+=$lamp4->power;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lampp4 ?></div></td>
                         </tr>
                         <tr>
                         <td><div class="h5 mb-0 font-weight-bold text-gray-800">Current (A)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp4->current ?></div></td>
+                          <?php $lampc4=0; foreach ($sensor4 as $lamp4){$lampc4+=$lamp4->current;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo round($lampc4,2); ?></div></td>
                         </tr>
                       </table>
-                      <?php endforeach ?>
                     </div>
                   </div>
                 </div>
@@ -374,7 +367,6 @@
                 <div class="card bg-info text-white shadow">
                   <div class="card-body">
                       Socket 2
-                      <?php foreach ($sensor5 as $lamp5): ?>
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
@@ -384,22 +376,22 @@
                         <tr>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power (W)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp5->power ?></div></td>
+                          <?php $lampp5=0; foreach ($sensor5 as $lamp5){$lampp5+=$lamp5->power;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lampp5 ?></div></td>
                         </tr>
                         <tr>
                         <td><div class="h5 mb-0 font-weight-bold text-gray-800">Current (A)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp5->current ?></div></td>
+                          <?php $lampc5=0; foreach ($sensor5 as $lamp5){$lampc5+=$lamp5->current;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo round($lampc5,2); ?></div></td>
                         </tr>
                       </table>
-                      <?php endforeach ?>
                     </div>
                   </div>
                 </div>
                 <div class="card-body">
                 <div class="card bg-info text-white shadow">
                   <div class="card-body">
-                  <?php foreach ($sensor6 as $lamp6): ?>
                       Socket 3
                       <table cellpadding="10">
                         <tr>
@@ -410,15 +402,16 @@
                         <tr>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800">Power (W)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp6->power ?></div></td>
+                          <?php $lampp6=0; foreach ($sensor6 as $lamp6){$lampp6+=$lamp6->power;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lampp6 ?></div></td>
                         </tr>
                         <tr>
                         <td><div class="h5 mb-0 font-weight-bold text-gray-800">Current (A)</div></td>
                           <td><div class="h5 mb-0 font-weight-bold text-gray-800"> :</div></td>
-                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $lamp6->current ?></div></td>
+                          <?php $lampc6=0; foreach ($sensor6 as $lamp6){$lampc6+=$lamp6->current;} ?>
+                          <td><div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo round($lampc6,2); ?></div></td>
                         </tr>
                       </table>
-                      <?php endforeach ?>
                     </div>
                   </div>
                 </div>

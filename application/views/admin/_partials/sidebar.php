@@ -56,6 +56,51 @@
       </li>
 
       <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Chart and Datatables
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Components</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Sensor</h6>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_1r1' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_1r1') ?>">Sensor_1r1</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_2r1' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_2r1') ?>">Sensor_2r1</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_3r1' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_3r1') ?>">Sensor_3r1</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_4r1' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_4r1') ?>">Sensor_4r1</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_5r1' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_5r1') ?>">Sensor_5r1</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_6r1' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_6r1') ?>">Sensor_6r1</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_1r2' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_1r2') ?>">Sensor_1r2</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_2r2' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_2r2') ?>">Sensor_2r2</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_3r2' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_3r2') ?>">Sensor_3r2</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_4r2' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_4r2') ?>">Sensor_4r2</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_5r2' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_5r2') ?>">Sensor_5r2</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_6r2' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_6r2') ?>">Sensor_6r2</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_1r3' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_1r3') ?>">Sensor_1r3</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_2r3' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_2r3') ?>">Sensor_2r3</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_3r3' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_3r3') ?>">Sensor_3r3</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_4r3' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_4r3') ?>">Sensor_4r3</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_5r3' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_5r3') ?>">Sensor_5r3</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_6r3' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_6r3') ?>">Sensor_6r3</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_1r4' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_1r4') ?>">Sensor_1r4</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_2r4' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_2r4') ?>">Sensor_2r4</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_3r4' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_3r4') ?>">Sensor_3r4</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_4r4' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_4r4') ?>">Sensor_4r4</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_5r4' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_5r4') ?>">Sensor_5r4</a>
+            <a class="collapse-item <?php echo $this->uri->segment(3) == 'sensor_6r4' ? 'active': '' ?>" href="<?php echo site_url('admin/overview/sensor_6r4') ?>">Sensor_6r4</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
