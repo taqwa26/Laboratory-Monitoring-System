@@ -14,8 +14,8 @@ class Login extends CI_Controller
         // jika form login disubmit
         if($this->input->post()){
             if($this->user_model->doLogin()) redirect(site_url('admin'));
+            $this->session->set_flashdata('failed', 'username/email & password dosnt match'); //tampilkan pesan gagal
         }
-
         // tampilkan halaman login
         $this->load->view("admin/login_page.php");
     }

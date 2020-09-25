@@ -5518,6 +5518,12 @@ a.badge-dark:focus, a.badge-dark.focus {
   border-color: #bff0de;
 }
 
+.alert-failed {
+  color: #680f0f;
+  background-color: #f4d2d2;
+  border-color: #f0bfbf;
+}
+
 .alert-success hr {
   border-top-color: #aaebd3;
 }

@@ -40,6 +40,11 @@
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome to.. <br>Laboratory Monitoring System</h1>
+                    <?php if ($this->session->flashdata('failed')): ?>
+                    <div class="alert alert-failed" role="alert">
+                      <?php echo $this->session->flashdata('failed'); ?>
+                    </div>
+                    <?php endif; ?>
                   </div>
                   <form class="user" action="<?= site_url('admin/login') ?>" method="POST">
                     <div class="form-group">
