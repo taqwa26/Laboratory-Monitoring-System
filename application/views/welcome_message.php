@@ -438,7 +438,6 @@
                  </table>
                 </div>
                 <hr>
-                <a onclick="deleteConfirm('<?php echo site_url('admin/overview/reset') ?>')" href="#!" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-trash fa-sm text-white-50"></i> Reset</a>
               </div>
 
             </div>

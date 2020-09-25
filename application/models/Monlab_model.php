@@ -232,6 +232,53 @@ class Monlab_model extends CI_Model
 		return TRUE;
 	}
 
+	public function update1()
+	{    
+		$data = array(      
+			"sensor_1r1" => $this->input->post('input_status'),       
+		);        
+		$this->db->update('status', $data); // Untuk mengeksekusi perintah update data
+	}
+	public function update2()
+	{    
+		$data = array(      
+			"sensor_2r1" => $this->input->post('input_status'),       
+		);        
+		$this->db->update('status', $data); // Untuk mengeksekusi perintah update data
+	}
+	public function update3()
+	{    
+		$data = array(      
+			"sensor_3r1" => $this->input->post('input_status'),       
+		);        
+		$this->db->update('status', $data); // Untuk mengeksekusi perintah update data
+	}
+	public function update4()
+	{    
+		$data = array(      
+			"sensor_4r1" => $this->input->post('input_status'),       
+		);        
+		$this->db->update('status', $data); // Untuk mengeksekusi perintah update data
+	}
+	public function update5()
+	{    
+		$data = array(      
+			"sensor_5r1" => $this->input->post('input_status'),       
+		);        
+		$this->db->update('status', $data); // Untuk mengeksekusi perintah update data
+	}
+	public function update6()
+	{    
+		$data = array(      
+			"sensor_6r1" => $this->input->post('input_status'),       
+		);        
+		$this->db->update('status', $data); // Untuk mengeksekusi perintah update data
+	}
+	public function getstatus()
+	{    
+		$query = "SELECT * FROM status";
+		return $this->db->query($query)->row();
+	}
 }
 
 ?>

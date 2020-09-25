@@ -185,136 +185,6 @@ class Overview_model extends CI_Model
     }
     
 
-
-
-    // function ambil_currently1(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("H");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("d");
-    //     if ($kondisi!=0){
-    //         $kondisi2-=1;
-    //         $query = "SELECT power FROM power_s1h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s1h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-    // function ambil_currently2(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("H");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("d");
-    //     if ($kondisi!=0){
-    //         $kondisi2-=1;
-    //         $query = "SELECT power FROM power_s2h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s2h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-    // function ambil_currently3(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("H");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("d");
-    //     if ($kondisi!=0){
-    //         $kondisi2-=1;
-    //         $query = "SELECT power FROM power_s3h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s3h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-    // function ambil_currently4(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("H");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("d");
-    //     if ($kondisi!=0){
-    //         $kondisi2-=1;
-    //         $query = "SELECT power FROM power_s4h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s4h WHERE t='$kondisi' AND d='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-
-
-
-
-    // function ambil_daily1(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("d");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("m");
-    //     if ($kondisi!=1){
-    //         $kondisi2=date('m',strtotime("-1 days"));
-    //         $query = "SELECT power FROM power_s1d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s1d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-    // function ambil_daily2(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("d");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("m");
-    //     if ($kondisi!=1){
-    //         $kondisi2=date('m',strtotime("-1 days"));
-    //         $query = "SELECT power FROM power_s2d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s2d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-    // function ambil_daily3(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("d");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("m");
-    //     if ($kondisi!=1){
-    //         $kondisi2=date('m',strtotime("-1 days"));
-    //         $query = "SELECT power FROM power_s3d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s3d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-    // function ambil_daily4(){
-    //     date_default_timezone_set("Asia/Makassar");
-    //     $kondisi=date("d");
-    //     $kondisi -= 1;
-    //     $kondisi2=date("m");
-    //     if ($kondisi!=1){
-    //         $kondisi2=date('m',strtotime("-1 days"));
-    //         $query = "SELECT power FROM power_s4d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }else{
-    //         $query = "SELECT power FROM power_s4d WHERE d='$kondisi' AND m='$kondisi2'";
-    //         return $this->db->query($query)->result();
-    //     }
-		
-    // }
-
-
-
-
     function ambil_currently1(){
         date_default_timezone_set("Asia/Jakarta");
         $kondisi=date("H");
@@ -347,9 +217,6 @@ class Overview_model extends CI_Model
         $query = "SELECT power FROM power_s4h WHERE t='$kondisi' AND d='$kondisi2'";
         return $this->db->query($query)->result();		
     }
-
-
-
 
     function ambil_daily1(){
         date_default_timezone_set("Asia/Makassar");
@@ -412,9 +279,6 @@ class Overview_model extends CI_Model
         }        
     }
 
-
-
-
     function ambil_sumdaily1(){
         date_default_timezone_set("Asia/Makassar");
         $kondisi2=date("m");
@@ -440,10 +304,6 @@ class Overview_model extends CI_Model
         return $this->db->query($query)->result();		
     }
 
-
-
-
-
     function ambil_monthly1(){
         date_default_timezone_set("Asia/Makassar");
         $kondisi2=date('m',strtotime("-1 month"));
@@ -468,9 +328,6 @@ class Overview_model extends CI_Model
         $query = "SELECT power FROM power_s4m WHERE m='$kondisi2'";
         return $this->db->query($query)->result();		
     }
-
-
-
 
     function power_s1h($insert)
 	{
@@ -523,8 +380,6 @@ class Overview_model extends CI_Model
         return $this->db->query($query)->result();
     }
 
-
-
     function view_alldaily(){
         date_default_timezone_set("Asia/Makassar");
         $kondisi=date("m");
@@ -541,8 +396,6 @@ class Overview_model extends CI_Model
         $query = "SELECT * FROM power_allm WHERE y='$kondisi' ORDER BY id_power ASC LIMIT 10";
 		return $this->db->query($query)->result();
     }
-
-
 
     function delete_sensor($clock){
         $query = "DELETE FROM sensor_1r1 WHERE t='$clock'";
@@ -674,7 +527,6 @@ class Overview_model extends CI_Model
 		return $this->db->query($query)->result();
     }
 
-
     function getsensor_1r3(){
         $query = "SELECT * FROM sensor_1r3 ORDER BY id_sensor ASC";
 		return $this->db->query($query)->result();
@@ -699,7 +551,6 @@ class Overview_model extends CI_Model
         $query = "SELECT * FROM sensor_6r3 ORDER BY id_sensor ASC";
 		return $this->db->query($query)->result();
     }
-
 
     function getsensor_1r4(){
         $query = "SELECT * FROM sensor_1r4 ORDER BY id_sensor ASC";
@@ -727,4 +578,104 @@ class Overview_model extends CI_Model
     }
 
 
+    
+    function getstatus_1r1(){
+        $query = "SELECT sensor_1r1 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_2r1(){
+        $query = "SELECT sensor_2r1 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_3r1(){
+        $query = "SELECT sensor_3r1 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_4r1(){
+        $query = "SELECT sensor_4r1 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_5r1(){
+        $query = "SELECT sensor_5r1 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_6r1(){
+        $query = "SELECT sensor_6r1 FROM status";
+		return $this->db->query($query)->result();
+    }
+
+    function getstatus_1r2(){
+        $query = "SELECT sensor_1r2 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_2r2(){
+        $query = "SELECT sensor_2r2 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_3r2(){
+        $query = "SELECT sensor_3r2 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_4r2(){
+        $query = "SELECT sensor_4r2 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_5r2(){
+        $query = "SELECT sensor_5r2 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_6r2(){
+        $query = "SELECT sensor_6r2 FROM status";
+		return $this->db->query($query)->result();
+    }
+
+    function getstatus_1r3(){
+        $query = "SELECT sensor_1r3 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_2r3(){
+        $query = "SELECT sensor_2r3 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_3r3(){
+        $query = "SELECT sensor_3r3 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_4r3(){
+        $query = "SELECT sensor_4r3 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_5r3(){
+        $query = "SELECT sensor_5r3 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_6r3(){
+        $query = "SELECT sensor_6r3 FROM status";
+		return $this->db->query($query)->result();
+    }
+
+    function getstatus_1r4(){
+        $query = "SELECT sensor_1r4 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_2r4(){
+        $query = "SELECT sensor_2r4 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_3r4(){
+        $query = "SELECT sensor_3r4 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_4r4(){
+        $query = "SELECT sensor_4r4 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_5r4(){
+        $query = "SELECT sensor_5r4 FROM status";
+		return $this->db->query($query)->result();
+    }
+    function getstatus_6r4(){
+        $query = "SELECT sensor_6r4 FROM status";
+		return $this->db->query($query)->result();
+    }
 }

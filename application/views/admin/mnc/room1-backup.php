@@ -37,7 +37,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Room 2</h1>
+            <h1 class="h3 mb-0 text-gray-800">Room 1</h1>
           </div>
 
           <!-- Content Row -->
@@ -115,7 +115,7 @@
                 </script>
                 </div>
                   <hr>
-                  This chart power usage form Room 2 every 1 hours.
+                  This chart power usage form Room 1 every 1 hours.
                 </div>
               </div>
 
@@ -188,7 +188,7 @@
                 </script>
                 </div>
                   <hr>
-                  This chart power usage form Room 2 every day.
+                  This chart power usage form Room 1 every day.
                 </div>
               </div>
               </div>
@@ -231,7 +231,7 @@
                    </tr>
                  </table>
                   <hr>
-                  Information power usage form Room 2.
+                  Information power usage form Room 1.
                 </div>
               </div>
             </div>
@@ -255,9 +255,13 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                          <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-                            <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room2/updstatus1", $attribute); ?>
-                              <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_1r2==1){echo "checked";}?> value="<?php if ($status->sensor_1r2==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                          <!-- <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3"> -->
+                            <?php echo form_open("admin/room1/updstatus"); ?>
+                              <div class="form-group">
+                                <input type="hidden" name="input_status" value="<?php if ($status->sensor_1r1==1){echo "0";}else{echo "1";} ?>" />
+                              </div>
+                              <!-- <input class="btn <?php if ($status->sensor_1r1==1){echo "btn-success";}else{echo "btn-danger";} ?>" type="submit" name="submit" value="<?php if ($status->sensor_1r1==1){echo "ON";}else{echo "OFF";} ?>" /> -->
+                              <input class="form-check-input pin" type="checkbox" <?php if ($status->sensor_1r1==1){echo "checked";}?> value="<?php if ($status->sensor_1r1==1){echo "1";}else{echo "0";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
                             <?php echo form_close(); ?>
                           </td>
                         </tr>
@@ -284,8 +288,11 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                            <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room2/updstatus2", $attribute); ?>
-                            <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_2r2==1){echo "checked";}?> value="<?php if ($status->sensor_2r2==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                          <?php echo form_open("admin/room1/updstatus"); ?>
+                              <div class="form-group">
+                                <input type="hidden" name="input_status" value="<?php if ($status->sensor_1r1==1){echo "0";}else{echo "1";} ?>" />
+                              </div>
+                              <input class="form-check-input pin" type="checkbox" <?php if ($status->sensor_1r1==1){echo "checked";}?> value="<?php if ($status->sensor_1r1==1){echo "1";}else{echo "0";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
                             <?php echo form_close(); ?>
                           </td>
                         </tr>
@@ -312,9 +319,7 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room2/updstatus3", $attribute); ?>
-                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_3r2==1){echo "checked";}?> value="<?php if ($status->sensor_3r2==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
-                           <?php echo form_close(); ?>
+                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
                           </td>
                         </tr>
                         <tr>
@@ -351,9 +356,7 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room2/updstatus4", $attribute); ?>
-                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_4r2==1){echo "checked";}?> value="<?php if ($status->sensor_4r2==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
-                            <?php echo form_close(); ?>
+                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
                           </td>
                         </tr>
                         <tr>
@@ -379,9 +382,7 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room2/updstatus5", $attribute); ?>
-                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_5r2==1){echo "checked";}?> value="<?php if ($status->sensor_5r2==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
-                          <?php echo form_close(); ?>                          
+                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
                           </td>
                         </tr>
                         <tr>
@@ -407,9 +408,7 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room2/updstatus6", $attribute); ?>
-                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_6r2==1){echo "checked";}?> value="<?php if ($status->sensor_6r1==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
-                            <?php echo form_close(); ?>
+                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
                           </td>
                         </tr>
                         <tr>

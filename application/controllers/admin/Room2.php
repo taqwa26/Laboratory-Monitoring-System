@@ -8,6 +8,9 @@ class Room2 extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model("user_model");
+		if($this->user_model->isNotLogin()) redirect(site_url('admin/login'));
+		
 		$this->load->model('monlab2_model');
 
 		$data['sensor1'] = $this->monlab2_model->ambildata1r1_currently();//sensor1
@@ -48,6 +51,8 @@ class Room2 extends CI_Controller {
 		$data['powerc4'] = $crm;
 
 		$data['powerc5'] = $this->monlab2_model->ambil_powerdall();//chart
+
+		$data['status'] = $this->monlab2_model->getstatus();
 		
 		$this->load->view('admin/mnc/room2', $data);
         // load view admin/overview.php
@@ -276,6 +281,39 @@ class Room2 extends CI_Controller {
 		}else{
 			echo "Variabel data tidak terdefinisi";
 		}
+	}
 
+	public function updstatus1(){
+		$this->load->model('monlab2_model');    
+		// if($this->input->post('submit'))
+		// { // Jika user mengklik tombol submit yang ada di form   
+			$this->monlab2_model->update1(); // Panggil fungsi edit() yang ada di SiswaModel.php
+			redirect("admin/room2");        
+		// }
+	}
+	public function updstatus2(){
+		$this->load->model('monlab2_model');    
+		$this->monlab2_model->update2(); // Panggil fungsi edit() yang ada di SiswaModel.php
+		redirect("admin/room2");        
+	}
+	public function updstatus3(){
+		$this->load->model('monlab2_model');    
+		$this->monlab2_model->update3(); // Panggil fungsi edit() yang ada di SiswaModel.php
+		redirect("admin/room2");        
+	}
+	public function updstatus4(){
+		$this->load->model('monlab2_model');    
+		$this->monlab2_model->update4(); // Panggil fungsi edit() yang ada di SiswaModel.php
+		redirect("admin/room2");        
+	}
+	public function updstatus5(){
+		$this->load->model('monlab2_model');    
+		$this->monlab2_model->update5(); // Panggil fungsi edit() yang ada di SiswaModel.php
+		redirect("admin/room2");        
+	}
+	public function updstatus6(){
+		$this->load->model('monlab2_model');    
+		$this->monlab2_model->update6(); // Panggil fungsi edit() yang ada di SiswaModel.php
+		redirect("admin/room2");        
 	}
 }

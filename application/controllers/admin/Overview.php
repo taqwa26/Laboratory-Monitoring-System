@@ -8,6 +8,9 @@ class Overview extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model("user_model");
+		if($this->user_model->isNotLogin()) redirect(site_url('admin/login'));
+		
 		$this->load->model('overview_model');
 
 		$datacurrentr1_1 = $this->overview_model->ambildata1r1_currently();
@@ -206,6 +209,7 @@ class Overview extends CI_Controller {
 		$this->load->view("admin/develop");
 	}
 
+// Fungsi untuk mendapatkan kwh jam setiap room dan membersihkan datatabel setiap sensor !!! PENTING !!!
 	public function jumlahperjam(){
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('overview_model');
@@ -246,6 +250,7 @@ class Overview extends CI_Controller {
 		}
 	}
 
+// Fungsi untuk mendapatkan kwh perhari setiap room dan membersihkan datatabel power/jam !!! PENTING !!!
 	public function jumlahperhari(){
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('overview_model');
@@ -287,6 +292,7 @@ class Overview extends CI_Controller {
 		}
 	}
 
+// Fungsi untuk mendapatkan kwh perbulan setiap room dan membersihkan datatabel power/day !!! PENTING !!!
 	public function jumlahperbulan(){
 		date_default_timezone_set("Asia/Jakarta");
 		$this->load->model('overview_model');
@@ -328,6 +334,7 @@ class Overview extends CI_Controller {
 		}
 	}
 
+// Fungsi untuk hapus semua data pada semua datatable
 	public function reset(){
 		$query = "TRUNCATE TABLE sensor_1r1";
 		$this->db->query($query);
@@ -406,6 +413,7 @@ class Overview extends CI_Controller {
 		redirect(site_url('admin'));
 	}
 
+	// Fungsi chart dan datatabel setiap sensor
 	public function sensor_1r1(){
 		$this->load->model('overview_model');
 		$data['chart'] = $this->overview_model->getsensor_1r1();
@@ -529,5 +537,179 @@ class Overview extends CI_Controller {
 		$data['chart'] = $this->overview_model->getsensor_6r4();
         $this->load->view("admin/sensor", $data);
 	}
+// end Fungsi chart dan datatable setiap sensor
 
+// Fungsi get status dari database untuk wemos (menyalakan dan memtikan relay) !!! PENTING !!!
+	public function status_1r1(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_1r1();
+		foreach ($data as $status){
+			echo $status->sensor_1r1;
+		}	
+	}
+	public function status_2r1(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_2r1();
+		foreach ($data as $status){
+			echo $status->sensor_2r1;
+		}	
+	}
+	public function status_3r1(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_3r1();
+		foreach ($data as $status){
+			echo $status->sensor_3r1;
+		}	
+	}
+	public function status_4r1(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_4r1();
+		foreach ($data as $status){
+			echo $status->sensor_4r1;
+		}	
+	}
+	public function status_5r1(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_5r1();
+		foreach ($data as $status){
+			echo $status->sensor_5r1;
+		}	
+	}
+	public function status_6r1(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_6r1();
+		foreach ($data as $status){
+			echo $status->sensor_6r1;
+		}	
+	}
+
+	public function status_1r2(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_1r2();
+		foreach ($data as $status){
+			echo $status->sensor_1r2;
+		}	
+	}
+	public function status_2r2(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_2r2();
+		foreach ($data as $status){
+			echo $status->sensor_2r2;
+		}	
+	}
+	public function status_3r2(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_3r2();
+		foreach ($data as $status){
+			echo $status->sensor_3r2;
+		}	
+	}
+	public function status_4r2(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_4r2();
+		foreach ($data as $status){
+			echo $status->sensor_4r2;
+		}	
+	}
+	public function status_5r2(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_5r2();
+		foreach ($data as $status){
+			echo $status->sensor_5r2;
+		}	
+	}
+	public function status_6r2(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_6r2();
+		foreach ($data as $status){
+			echo $status->sensor_6r2;
+		}	
+	}
+
+	public function status_1r3(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_1r3();
+		foreach ($data as $status){
+			echo $status->sensor_1r3;
+		}	
+	}
+	public function status_2r3(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_2r3();
+		foreach ($data as $status){
+			echo $status->sensor_2r3;
+		}	
+	}
+	public function status_3r3(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_3r3();
+		foreach ($data as $status){
+			echo $status->sensor_3r3;
+		}	
+	}
+	public function status_4r3(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_4r3();
+		foreach ($data as $status){
+			echo $status->sensor_4r3;
+		}	
+	}
+	public function status_5r3(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_5r3();
+		foreach ($data as $status){
+			echo $status->sensor_5r3;
+		}	
+	}
+	public function status_6r3(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_6r3();
+		foreach ($data as $status){
+			echo $status->sensor_6r3;
+		}	
+	}
+
+	public function status_1r4(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_1r4();
+		foreach ($data as $status){
+			echo $status->sensor_1r4;
+		}	
+	}
+	public function status_2r4(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_2r4();
+		foreach ($data as $status){
+			echo $status->sensor_2r4;
+		}	
+	}
+	public function status_3r4(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_3r4();
+		foreach ($data as $status){
+			echo $status->sensor_3r4;
+		}	
+	}
+	public function status_4r4(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_4r4();
+		foreach ($data as $status){
+			echo $status->sensor_4r4;
+		}	
+	}
+	public function status_5r4(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_5r4();
+		foreach ($data as $status){
+			echo $status->sensor_5r4;
+		}	
+	}
+	public function status_6r4(){
+		$this->load->model('overview_model');
+		$data = $this->overview_model->getstatus_6r4();
+		foreach ($data as $status){
+			echo $status->sensor_6r4;
+		}	
+	}
+// end Fungsi get status dari database untuk wemos (menyalakan dan memtikan relay)
 }

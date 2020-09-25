@@ -255,7 +255,10 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
+                          <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+                            <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room1/updstatus1", $attribute); ?>
+                              <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_1r1==1){echo "checked";}?> value="<?php if ($status->sensor_1r1==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                            <?php echo form_close(); ?>
                           </td>
                         </tr>
                         <tr>
@@ -281,7 +284,9 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
+                            <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room1/updstatus2", $attribute); ?>
+                            <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_2r1==1){echo "checked";}?> value="<?php if ($status->sensor_2r1==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                            <?php echo form_close(); ?>
                           </td>
                         </tr>
                         <tr>
@@ -307,7 +312,9 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
+                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room1/updstatus3", $attribute); ?>
+                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_3r1==1){echo "checked";}?> value="<?php if ($status->sensor_3r1==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                           <?php echo form_close(); ?>
                           </td>
                         </tr>
                         <tr>
@@ -344,7 +351,9 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
+                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room1/updstatus4", $attribute); ?>
+                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_4r1==1){echo "checked";}?> value="<?php if ($status->sensor_4r1==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                            <?php echo form_close(); ?>
                           </td>
                         </tr>
                         <tr>
@@ -370,7 +379,9 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
+                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room1/updstatus5", $attribute); ?>
+                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_5r1==1){echo "checked";}?> value="<?php if ($status->sensor_5r1==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                          <?php echo form_close(); ?>                          
                           </td>
                         </tr>
                         <tr>
@@ -396,7 +407,9 @@
                       <table cellpadding="10">
                         <tr>
                           <td align=center>
-                            <input class="form-check-input pin" type="checkbox" data-toggle="toggle" data-on="D3 On" data-off="D3 OFF" value="D3">
+                          <?php $attribute = array('target' => 'dummyframe'); echo form_open("admin/room1/updstatus6", $attribute); ?>
+                          <input class="form-check-input pin" name="input_status" type="checkbox" <?php if ($status->sensor_6r1==1){echo "checked";}?> value="<?php if ($status->sensor_6r1==1){echo "0";}else{echo "1";} ?>" onclick="if(this.checked){this.form.submit()}else{this.form.submit()}">
+                            <?php echo form_close(); ?>
                           </td>
                         </tr>
                         <tr>
