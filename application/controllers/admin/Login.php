@@ -24,6 +24,7 @@ class Login extends CI_Controller
     {
         // hancurkan semua sesi
         $this->session->sess_destroy();
-        redirect(site_url('admin/login'));
+        // redirect(site_url('admin/login'));
+        redirect(site_url());
     }
 }
